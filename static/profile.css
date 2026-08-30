@@ -1,0 +1,551 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#0f172a;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 15px rgba(0,0,0,.05);
+}
+
+.logo h2{
+color:#0d3b88;
+font-weight:700;
+}
+
+.logo span{
+font-size:11px;
+color:#777;
+}
+
+nav a{
+text-decoration:none;
+margin:0 14px;
+color:#1f2937;
+font-size:16px;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover,
+nav a.active{
+color:#0d3b88;
+}
+
+.auth-btns button{
+padding:10px 22px;
+border-radius:9px;
+cursor:pointer;
+font-weight:600;
+}
+
+.login{
+border:1px solid #0d3b88;
+background:white;
+color:#0d3b88;
+}
+
+.signup{
+border:none;
+background:#0d3b88;
+color:white;
+margin-left:8px;
+}
+
+/* MAIN CONTAINER */
+
+.profile-container{
+width:82%;
+margin:35px auto 70px;
+}
+
+/* PROFILE HEADER */
+
+.profile-header{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.cover{
+height:180px;
+background:linear-gradient(135deg,#0d3b88,#2563eb);
+}
+
+.profile-content{
+display:flex;
+align-items:flex-start;
+gap:30px;
+padding:0 35px 30px;
+}
+
+.profile-photo{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+border:6px solid white;
+margin-top:-65px;
+background:#ddd;
+}
+
+.profile-info{
+padding-top:20px;
+}
+
+.profile-info h1{
+font-size:30px;
+color:#0b2d63;
+margin-bottom:6px;
+}
+
+.headline{
+font-size:16px;
+color:#374151;
+margin-bottom:8px;
+}
+
+.college{
+font-size:14px;
+color:#555;
+margin-bottom:5px;
+}
+
+.location{
+font-size:14px;
+color:#777;
+}
+
+.profile-buttons{
+display:flex;
+gap:12px;
+margin-top:18px;
+}
+
+.edit-btn,
+.cv-btn{
+padding:10px 20px;
+border-radius:8px;
+font-weight:600;
+cursor:pointer;
+}
+
+.edit-btn{
+border:none;
+background:#0d3b88;
+color:white;
+}
+
+.cv-btn{
+border:1px solid #0d3b88;
+background:white;
+color:#0d3b88;
+}
+
+/* SECTIONS */
+
+/* about section and education section */
+#section-about-education{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    gap: 50px;
+    background:white;
+    padding:28px 32px;
+    border-radius:16px;
+    margin-top:22px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.section-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.section-title h2{
+font-size:22px;
+color:#0b2d63;
+}
+
+.section-title button{
+border:none;
+background:none;
+color:#2563eb;
+font-weight:600;
+cursor:pointer;
+}
+
+.section-card p{
+font-size:14px;
+color:#555;
+line-height:1.8;
+}
+
+.section-about{
+    width: 50%;
+}
+
+/* education-section */
+
+/* EDUCATION */
+
+.education{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.education-item,.certification-item{
+display:flex;
+gap:16px;
+padding:15px 0;
+border-bottom:1px solid #edf0f4;
+}
+
+.education-item:last-child{
+border-bottom:none;
+}
+
+.edu-icon{
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#eff6ff;
+border-radius:10px;
+font-size:20px;
+}
+
+.education-item h3{
+font-size:16px;
+margin-bottom:4px;
+}
+
+.education-item p{
+font-size:14px;
+color:#555;
+margin-bottom:3px;
+}
+
+.education-item span{
+font-size:12px;
+color:#888;
+}
+
+
+/* SKILLS */
+
+#section-skills-certification{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.skills{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    width: 50%;
+    padding: 15px;
+}
+
+.skill span{
+display:block;
+font-size:14px;
+font-weight:600;
+margin-bottom:7px;
+}
+
+.bar{
+height:8px;
+margin-bottom: 10px;
+background:#e5e7eb;
+border-radius:20px;
+overflow:hidden;
+}
+
+.bar div{
+height:100%;
+background:#2563eb;
+border-radius:20px;
+}
+
+/* CERTIFICATIONS */
+
+.certificatation{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  
+    gap:15px;
+    padding:16px 0;
+    border-bottom:1px solid #edf0f4;
+}
+
+.certificate:last-child{
+border-bottom:none;
+}
+
+.certificate-icon{
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#eff6ff;
+border-radius:10px;
+font-size:20px;
+}
+
+.certificate h3{
+font-size:15px;
+margin-bottom:4px;
+}
+
+.certificate p{
+font-size:13px;
+color:#666;
+margin-bottom:3px;
+}
+
+.certificate span{
+font-size:12px;
+color:#0d3b88;
+}
+
+
+/* PROJECTS */
+
+#project{
+
+padding:20px 0;
+border-bottom:1px solid #edf0f4;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.project-card{
+    border-bottom:1px solid #bdc9da;
+
+    padding: 10px;
+}
+.project-card:last-child{
+border-bottom:none;
+padding-bottom:0;
+}
+
+.project h3{
+font-size:18px;
+color:#0d3b88;
+margin-bottom:8px;
+}
+
+.project p{
+font-size:16px;
+color:#666;
+line-height:1.6;
+margin-bottom:12px;
+}
+
+.technologies{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:12px;
+}
+
+.technologies span{
+background:#f1f5f9;
+padding:6px 10px;
+border-radius:6px;
+font-size:11px;
+color:#374151;
+}
+
+.project a{
+text-decoration:none;
+color:#2563eb;
+font-size:13px;
+font-weight:600;
+}
+
+/* CAREER INTERESTS */
+
+.career{
+    background:white;
+    padding:28px 32px;
+    border-radius:16px;
+    margin-top:22px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.career-details{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.career-item{
+    padding:15px;
+    background:#ebedef;
+    border-radius:10px;
+}
+
+.career-item h4{
+    font-size:14px;
+    color:#0d3b88;
+    margin-bottom:7px;
+}
+
+.career-item p{
+    font-size:14px;
+    color:#555;
+    line-height:1.7;
+}
+
+.career-goal{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid #edf0f4;
+}
+
+.career-goal h4{
+    font-size:14px;
+    color:#0d3b88;
+    margin-bottom:7px;
+}
+
+.career-goal p{
+    font-size:14px;
+    color:#555;
+    line-height:1.8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.navbar{
+padding:18px 5%;
+}
+
+.profile-container{
+width:90%;
+}
+
+.skills{
+grid-template-columns:1fr;
+}
+
+.interests{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar{
+padding:15px 5%;
+}
+
+nav{
+display:none;
+}
+
+.profile-container{
+width:94%;
+margin-top:20px;
+}
+
+.cover{
+height:140px;
+}
+
+.profile-content{
+flex-direction:column;
+gap:10px;
+padding:0 22px 25px;
+}
+
+.profile-photo{
+margin-top:-60px;
+}
+
+.profile-info{
+padding-top:5px;
+}
+
+.profile-info h1{
+font-size:26px;
+}
+
+.profile-buttons{
+flex-direction:column;
+}
+
+.edit-btn,
+.cv-btn{
+width:100%;
+}
+
+.section-card{
+padding:22px;
+}
+
+/* .interests{
+grid-template-columns:1fr;
+} */
+
+}
+
+@media(max-width:500px){
+
+.logo h2{
+font-size:20px;
+}
+
+.logo span{
+display:none;
+}
+
+.auth-btns button{
+padding:8px 12px;
+}
+
+.profile-content{
+padding-left:18px;
+padding-right:18px;
+}
+
+.section-card{
+padding:20px;
+}
+
+.section-title h2{
+font-size:20px;
+}
+
+}

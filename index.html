@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AIC Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <h2>AIC Portal</h2>
+        <span>Academia Industry Collaboration</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#students">Students</a>
+        <a href="{{ url_for('assess') }}">Assess Skills</a>
+        <a href="#industries">Internships</a>
+        <a href="{{ url_for('profile') }}">My Profile</a>
+    </nav>
+
+    <div class="search-box">
+        <span>🔍</span>
+        <input type="text" placeholder="Search students, skills, internships...">
+    </div>
+
+</header>
+
+
+<section class="hero" id="home">
+
+    <div class="hero-left">
+
+        <h1>
+            Bridging Academia<br>
+            and Industry
+        </h1>
+
+        <p>
+            A unified platform for skill development, internships,
+            placements and meaningful collaboration.
+        </p>
+
+        <p class="hero-tagline">
+            Turning skills into opportunities and academic potential into industry-ready careers. <br>
+            From skill assessment to internships and placements, build your career with opportunities that match your potential.
+        </p>
+
+        <div class="auth-btns">
+
+            <button class="login">
+                <a href="">Login</a>
+            </button>
+
+            <button class="signup">
+                <a href="">Sign Up</a>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-right">
+
+        <div class="hero-image">
+            <!-- <img src="sih_img1.png" alt="Academia Industry Collaboration"> -->
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="roles">
+
+    <h2>Explore By Role</h2>
+
+    <div class="role-container">
+
+        <div class="card" id="students">
+
+            <h3>Students</h3>
+
+            <p>
+                Assess skills, discover opportunities and create your career pathway.
+            </p>
+
+        </div>
+
+
+        <div class="card" id="academicians">
+
+            <h3>Academicians</h3>
+
+            <p>
+                Research collaborations, FDP programs and mentorship opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="card" id="industries">
+
+            <h3>Industries</h3>
+
+            <p>
+                Discover talent and connect with future professionals.
+            </p>
+
+        </div>
+
+
+        <div class="card" id="institutions">
+
+            <h3>Institutions</h3>
+
+            <p>
+                Track student growth, placements and analytics.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="features" id="resources">
+
+    <h2>Key Features</h2>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <h3>Skill Assessment</h3>
+
+            <p>
+                Evaluate & identify skill gaps.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>Skill Mapping</h3>
+
+            <p>
+                Personalized recommendations.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>Internships</h3>
+
+            <p>
+                Find relevant internships.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>Industry Programs</h3>
+
+            <p>
+                Training and workshops.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>Placements</h3>
+
+            <p>
+                Discover opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>Digital Portfolio</h3>
+
+            <p>
+                Showcase skills & achievements.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</body>
+</html>

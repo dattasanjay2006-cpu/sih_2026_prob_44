@@ -26,7 +26,7 @@
     <nav>
         <a href="{{url_for('home')}}">Home</a>
         <a href="#">Students</a>
-        <a href="#">Assess Skills</a>
+        <a href="{{url_for('assess')}}">Assess Skills</a>
         <a href="#">Internships</a>
         <a href="{{url_for('profile')}}" class="active">My Profile</a>
     </nav>
@@ -68,7 +68,7 @@
                 </p>
 
                 <div class="profile-buttons">
-                    <button class="edit-btn">Edit Profile</button>
+                    <a href="{{ url_for('assess') }}" class="edit-btn">Edit Profile</a>
                     <button class="cv-btn">Download CV</button>
                 </div>
             </div>
@@ -133,35 +133,35 @@
             <div class="skill">
                 <span>{{skill1}}</span>
                 <div class="bar">
-                    <!-- <div style="width:{{ skill1_level }}%"></div> -->
+                    <div style="width:{{ skill1_level }}%"></div>
                 </div>
             </div>
 
             <div class="skill">
                 <span>{{ skill2 }}</span>
                 <div class="bar">
-                    <!-- <div style="width:{{ skill2_level }}%"></div> -->
+                    <div style="width:{{ skill2_level }}%"></div>
                 </div>
             </div>
 
             <div class="skill">
                 <span>{{ skill3 }}</span>
                 <div class="bar">
-                    <!-- <div style="width:{{ skill3_level }}%"></div> -->
+                     <div style="width:{{ skill3_level }}%"></div>
                 </div>
             </div>
 
             <div class="skill">
                 <span>{{ skill4 }}</span>
                 <div class="bar">
-                    <!-- <div style="width:{{ skill4_level }}%"></div> -->
+                     <div style="width:{{ skill4_level }}%"></div>
                 </div>
             </div>
 
             <div class="skill">
                 <span>{{ skill5 }}</span>
                 <div class="bar">
-                    <!-- <div style="width:{{ skill5_level }}%"></div> -->
+                     <div style="width:{{ skill5_level }}%"></div>
                 </div>
             </div>
         </section>

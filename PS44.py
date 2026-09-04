@@ -325,6 +325,13 @@ def register():
 
 
     # --------------------------------------------------
+    # LOGIN FORM
+    # --------------------------------------------------
+
+
+
+
+    # --------------------------------------------------
     # FRIEND'S ASSESSMENT FORM
     # --------------------------------------------------
 
@@ -604,9 +611,53 @@ def profile():
         "profile.html",
         **profile_data
     )
+
 # --------------------------------------------------
-# RUN APPLICATION
+# LOGIN FORM
 # --------------------------------------------------
+
+@app.route("/login", methods=["GET","POST"])
+def login():
+    if request.method=="POST":
+        username=request.form.get("username")
+        contact=request.form.get("contact")
+        password=request.form.get("password")
+
+        profile=session.get("profile")
+
+        if profile:
+            if username==profile.get("name") and contact==profile.get("email") and password==profile.get("password"):
+                session["logged_in"]=True
+                return redirect(url_for("profile"))
+
+        return render_template("login.html", error="Invalid username, contact or password")
+
+    return render_template("login.html")
+
+# --------------------------------------------------
+# SIGNUP FORM
+#---------------------------
+
+@app.route("/signup", methods=["GET","POST"])
+def signup():
+    if request.method=="POST":
+        username=request.form.get("username")
+        contact=request.form.get("contact")
+        password=request.form.get("password")
+        confirm_password=request.form.get("confirm_password")
+
+        if password!=confirm_password:
+            return render_template("signup.html", error="Passwords do not match")
+
+        session["profile"]={
+            "name":username,
+            "email":contact,
+            "password":password
+        }
+
+        return redirect(url_for("login"))
+
+    return render_template("signup.html")
 
 if __name__=="__main__":
 

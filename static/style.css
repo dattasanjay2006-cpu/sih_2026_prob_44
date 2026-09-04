@@ -79,15 +79,21 @@ color:#0d3b88;
     text-decoration: none;
 }
 .auth-btns button{
-padding:12px 24px;
-border-radius:10px;
-cursor:pointer;
-font-weight:600;
+    padding:12px 24px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
 }
-
+.auth-btns .login{
+    display:flex;
+    gap:8px;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+}
 .login{
-border:1px solid #0d3b88;
-background:white;
+    border:1px solid #0d3b88;
+    background:white;
 
 cursor: pointer;}
 .login a{
@@ -98,20 +104,20 @@ cursor: pointer;}
     color:white;
 }
 .signup{
-border:none;
-background:#0d3b88;
+    border:none;
+    background:#0d3b88;
 
-margin-left:10px;
-cursor: pointer;
+    margin-left:10px;
+    cursor: pointer;
 }
 
 /* HERO */
 .hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:80px 8%;
-gap:30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:80px 8%;
+    gap:30px;
     position:relative;
     height: 670px;
     overflow:hidden;
@@ -128,45 +134,45 @@ flex:1;
 }
 
 .hero-left h1{
-font-size:70px;
-line-height:1.1;
-font-weight:800;
-color:#08275c;
+    font-size:70px;
+    line-height:1.1;
+    font-weight:800;
+    color:#08275c;
 }
 
 .hero-left p{
-margin:25px 0;
-font-size:18px;
-color:#555;
-max-width:600px;
+    margin:25px 0;
+    font-size:18px;
+    color:#555;
+    max-width:600px;
 }
 .hero-left{
-position:relative;
-z-index:2;
-width:50%;
+    position:relative;
+    z-index:2;
+    width:50%;
 }
 .hero-buttons{
-display:flex;
-gap:15px;
-margin-top:30px;
+    display:flex;
+    gap:15px;
+    margin-top:30px;
 }
 
 .primary-btn{
-padding:15px 35px;
-border:none;
-border-radius:12px;
-background:linear-gradient(135deg,#0d3b88,#2563eb);
-color:white;
-font-weight:600;
-cursor:pointer;
+    padding:15px 35px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#0d3b88,#2563eb);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
 }
 
 .secondary-btn{
-padding:15px 35px;
-border-radius:12px;
-border:1px solid #0d3b88;
-background:white;
-cursor:pointer;
+    padding:15px 35px;
+    border-radius:12px;
+    border:1px solid #0d3b88;
+    background:white;
+    cursor:pointer;
 }
 
 .hero-right{

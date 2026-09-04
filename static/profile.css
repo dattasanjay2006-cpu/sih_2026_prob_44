@@ -51,8 +51,16 @@ nav a.active{
 .auth-btns{
     display:flex;
     gap:8px;
+    text-decoration: none;
+    border: none;
 }
 
+.auth-btns .login{
+    display:flex;
+    gap:8px;
+    text-decoration: none;
+    border: none;
+}
 .auth-btns button{
 padding:10px 22px;
 border-radius:9px;

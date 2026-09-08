@@ -1,92 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Sign Up | AIC Portal</title>
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - AIC Portal</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signup.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
 
-<header class="navbar">
-
+  <!-- Navigation Bar -->
+  <header class="navbar">
     <div class="logo">
-        <h2>AIC Portal</h2>
-        <span>Academia Industry Collaboration</span>
+      <h2>AIC Portal</h2>
+      <span>Academia Industry Collaboration</span>
     </div>
 
     <nav>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="#">Students</a>
-        <a href="{{ url_for('assess') }}">Assess Skills</a>
-        <a href="#">Internships</a>
-        <a href="{{ url_for('profile') }}">My Profile</a>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="#">Students</a>
+      <a href="{{ url_for('assess') }}">Assess Skills</a>
+      <a href="#">Internships</a>
+      <a href="{{ url_for('profile') }}">My Profile</a>
     </nav>
 
-    <div class="search-box">
-        <span>🔍</span>
-        <input type="text" placeholder="Search students, skills, internships...">
+    <div class="auth-btns">
+      <a href="{{ url_for('login') }}" class="login">Login</a>
+      <a href="{{ url_for('signup') }}" class="signup active-nav">Sign Up</a>
+    </div>
+  </header>
+
+  <!-- Signup Container -->
+  <main class="login-container">
+
+    <div class="form-heading">
+      <h1>Create Account</h1>
+      <p>Join the portal as a Student or Recruiter</p>
     </div>
 
-</header>
+    {% if error %}
+      <div class="error-alert">
+        <i class="fa-solid fa-circle-exclamation"></i> {{ error }}
+      </div>
+    {% endif %}
 
-<main class="signup-container">
+    <div class="login-card">
 
-    <div class="signup-box">
+      <!-- Role Switcher Links via Jinja2 -->
+      <div class="role-switch">
+        <a href="{{ url_for('signup', role='user') }}" 
+           class="role-btn {% if active_role == 'user' %}active{% endif %}">
+          <i class="fa-solid fa-user-graduate"></i> Student Signup
+        </a>
+        <a href="{{ url_for('signup', role='company') }}" 
+           class="role-btn {% if active_role == 'company' %}active{% endif %}">
+          <i class="fa-solid fa-building"></i> Company Signup
+        </a>
+      </div>
 
-        <div class="signup-heading">
-            <h1>Create Account</h1>
-            <p>Join the AIC Portal</p>
-        </div>
+      <!-- Dynamic Form Rendering Based on Role -->
+      {% if active_role == 'company' %}
 
-        {% if error %}
-            <p class="signup-error">{{ error }}</p>
-        {% endif %}
+        <!-- COMPANY SIGNUP FORM -->
+        <form method="POST" action="{{ url_for('signup', role='company') }}">
+          <input type="hidden" name="role" value="company">
 
-        <form action="{{ url_for('signup') }}" method="POST">
+          <h2>Company Registration</h2>
 
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username"
-                       placeholder="Enter username" required>
-            </div>
+          <div class="input-group">
+            <label for="company_name">Company Name</label>
+            <input type="text" id="company_name" name="company_name" placeholder="e.g. Acme Corp" required>
+          </div>
 
-            <div class="form-group">
-                <label for="contact">Mobile Number / Email ID</label>
-                <input type="text" id="contact" name="contact"
-                       placeholder="Enter mobile number or email ID" required>
-            </div>
+          <div class="input-group">
+            <label for="contact">Work Email Address</label>
+            <input type="email" id="contact" name="contact" placeholder="recruiter@company.com" required>
+          </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password"
-                       placeholder="Create password" required>
-            </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+          </div>
 
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password</label>
-                <input type="password" id="confirm_password" name="confirm_password"
-                       placeholder="Confirm password" required>
-            </div>
+          <div class="input-group">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required>
+          </div>
 
-            <button type="submit" class="signup-btn">
-                Create Account
-            </button>
-
+          <button class="calculate" type="submit">Register Company</button>
         </form>
 
-        <p class="login-text">
-            Already have an account?
-            <a href="{{ url_for('login') }}">Login</a>
-        </p>
+      {% else %}
+
+        <!-- STUDENT SIGNUP FORM -->
+        <form method="POST" action="{{ url_for('signup', role='user') }}">
+          <input type="hidden" name="role" value="user">
+
+          <h2>Student Registration</h2>
+
+          <div class="input-group">
+            <label for="username">Full Name</label>
+            <input type="text" id="username" name="username" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="input-group">
+            <label for="contact">Email Address</label>
+            <input type="email" id="contact" name="contact" placeholder="student@college.edu" required>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+          </div>
+
+          <div class="input-group">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required>
+          </div>
+
+          <button class="calculate" type="submit">Register as Student</button>
+        </form>
+
+      {% endif %}
+
+      <div class="switch-signup">
+        <p>Already have an account? <a href="{{ url_for('login') }}">Log In</a></p>
+      </div>
 
     </div>
+  </main>
 
-</main>
+  <div class="footer">
+    <p>© 2026 Team Vision Nexus</p>
+  </div>
 
 </body>
 </html>

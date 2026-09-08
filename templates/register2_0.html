@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Register</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='register2_0.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+</head>
+<body>
+  <!--<header>
+    <h1>Academia-Industry Portal</h1>
+    <p class="ehc">Register Portal For College Students</p>
+  </header> -->
+
+<header class="navbar">
+
+        <div class="logo">
+            <h2>AIC Portal</h2>
+            <span>Academia Industry Collaboration</span>
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="#">Students</a>
+            <a href="#">Assess Skills</a>
+            <a href="#">Internships</a>
+            <a href="{{ url_for('profile') }}">My Profile</a>
+        </nav>
+
+        <div class="auth-btns">
+            <a href="/login" class="login">Login</a>
+            <a href="/register" class="signup">Sign Up</a>
+        </div>
+
+    </header>
+
+
+    <main class="register-container">
+
+      <div class="form-heading">
+          <h1>Create Your Profile</h1>
+          <p>Build your professional profile and connect with opportunities.</p>
+      </div>
+
+
+    
+
+
+  <form method="POST" action="/register2_0" enctype="multipart/form-data">
+    <div class="details">
+      <h2>Enter Details</h2>
+
+      <label for="username"><b>Full Name</b></label>
+      <input type="text" id="username" name="username" placeholder="Enter Full Name" required>
+
+      <div class="class">
+        <span><b>Year</b></span>
+        <select name="class" required>
+          <option value="" disabled selected hidden>Select Year</option>
+          <option value="1">1st Year</option>
+          <option value="2">2nd Year</option>
+          <option value="3">3rd Year</option>
+          <option value="4">4th Year</option>
+        </select>
+      </div>
+
+      <div class="section">
+        <span><b>Section</b></span>
+        <select name="section" required>
+          <option value="" disabled selected hidden>Select Your preferred tool/programming language</option>
+          <option>Python</option>
+          <option>C++</option>
+          <option>Java</option>
+          <option>JavaScript</option>
+          <option>MATLAB</option>
+          <option>CAD / CAM</option>
+          <option>Arduino</option>
+          <option>ANSYS</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="type" id="tree-container" data-tree='{{ academic_tree | tojson | safe }}'>
+        <span><b>Major Category</b></span>
+        <select id="major-category" name="domain" onchange="updateSubcategories()" required>
+          <option value="" disabled selected hidden>Select Major Category</option>
+          {% if academic_tree and academic_tree.children %}
+            {% for category in academic_tree.children %}
+              <option value="{{ loop.index0 }}">{{ category.name }}</option>
+            {% endfor %}
+          {% endif %}
+        </select>
+
+        <div class="section">
+          <span><b>Specific Discipline</b></span>
+          <select id="stream" name="stream" onchange="updateTopics()" required>
+            <option value="" disabled selected hidden>Select Specific Discipline First</option>
+          </select>
+        </div>
+      </div>
+
+      
+      <div class="type">
+        <span><b>Preferred Role</b></span>
+        <select id="preferred-role" name="preferred_role" required disabled>
+          <option value="" disabled selected hidden>Select Major Category First</option>
+        </select>
+      </div>
+    
+
+      <input class="calculate" type="submit" value="Submit">
+    </div>
+  </form>
+
+  <div class="footer">
+    <p>© 2026 Team Vision Nexus</p>
+  </div>
+
+  <script>
+    const container = document.getElementById('tree-container');
+    const treeData = JSON.parse(container.getAttribute('data-tree') || '{}');
+
+    // Industry Role Mapping based on Level 1 Academic Categories
+    const domainRolesMap = {
+      "Engineering & Technology": [
+        "AI / ML Engineer", "Data Scientist & Analyst", "Fullstack / Software Developer",
+        "DevOps & Cloud Engineer", "Cybersecurity Analyst", "Embedded Systems & IoT Engineer",
+        "CAD / CFD Design Engineer", "Thermal / Powerplant Engineer", "VLSI & Hardware Design Engineer",
+        "Robotics & Automation Engineer", "Civil & Structural Engineer","Automotive & EV Systems Engineer",
+    
+        "Power Systems & Smart Grid Engineer",
+       "Chemical Process Design & Simulation Engineer",
+       "Materials Characterization & Quality Engineer",
+       "Bioprocess & Fermentation Engineer",
+       "Industrial Automation & PLC/SCADA Engineer"
+      ],
+      "Management & Bussiness": [
+        "Business Analyst", "Financial Analyst / Investment Banking", "Product / Project Manager",
+        "Digital Marketing & Brand Manager", "Human Resources (HR) Specialist", "Supply Chain & Logistics Manager",
+        "Operations Associate", "Management Consultant", "Accounting & Audit Specialist"
+      ],
+      "Pure & Applied Sciences": [
+        "Data & Actuarial Analyst", "R&D Research Associate", "Biotech & Genetic Specialist",
+        "Microbiologist / QC Specialist", "Environmental Consultant", "Geologist & Exploration Specialist",
+        "Statistical / Math Modeler"
+      ],
+      "Humanities & Arts": [
+        "Policy Analyst & Public Affairs", "Content Strategist & Technical Writer", "UI/UX & Graphic Designer",
+        "Journalist & Media Specialist", "Psychologist & Counselor", "Linguist & Translator", "Market Research Analyst"
+      ],
+      "Medical & Healthcare": [
+        "Healthcare Operations Manager", "Pharmaceutical R&D Researcher", "Public Health Analyst / Epidemiologist",
+        "Clinical Research Associate", "Pathology & Diagnostics Associate", "Physical Therapy Specialist",
+        "Medical Administrator"
+      ]
+    };
+
+    function updateSubcategories() {
+      const majorSelect = document.getElementById('major-category');
+      const streamSelect = document.getElementById('stream');
+      const roleSelect = document.getElementById('preferred-role');
+      const majorIdx = majorSelect.value;
+
+      streamSelect.innerHTML = '<option value="" disabled selected hidden>Select Specific Discipline</option>';
+
+      if (roleSelect) {
+        roleSelect.innerHTML = '<option value="" disabled selected hidden>Select Preferred Role</option>';
+        roleSelect.disabled = true;
+      }
+
+      if (majorIdx !== "" && treeData.children && treeData.children[majorIdx]) {
+        const selectedCategoryNode = treeData.children[majorIdx];
+        const categoryName = selectedCategoryNode.name;
+        const disciplines = selectedCategoryNode.children || [];
+
+        disciplines.forEach((child, idx) => {
+          const option = document.createElement('option');
+          const childName = typeof child === 'object' ? child.name : child;
+          option.value = childName;
+          option.setAttribute('data-idx', idx);
+          option.textContent = childName;
+          streamSelect.appendChild(option);
+        });
+
+        
+        if (roleSelect && domainRolesMap[categoryName]) {
+          domainRolesMap[categoryName].forEach(role => {
+            const option = document.createElement('option');
+            option.value = role;
+            option.textContent = role;
+            roleSelect.appendChild(option);
+          });
+          roleSelect.disabled = false;
+        }
+        
+      }
+    }
+
+    function updateTopics() {
+      const streamSelect = document.getElementById('stream');
+      if (!streamSelect || !streamSelect.value) return;
+    }
+  </script>
+</body>
+</html>

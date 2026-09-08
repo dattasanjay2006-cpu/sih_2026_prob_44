@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AIC Portal | Industry</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='company.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <h2>AIC Portal</h2>
+        <span>Academia Industry Collaboration</span>
+    </div>
+
+    <nav>
+        <a href="#home">Organization Hub</a>
+        <a href="#postjob">Post Jobs</a>
+        <a href="#postcourse">Post Courses</a>
+        <a href="#application">View Application</a>
+    </nav>
+
+</header>
+
+
+<section class="hero" id="home">
+
+    <div class="hero-left">
+
+        <span class="hero-label">
+            <i class="fa-solid fa-building"></i>
+            INDUSTRY CONNECT
+        </span>
+
+        <h1>
+            Build Talent.<br>
+            Shape the Future.
+        </h1>
+
+        <p>
+            Connect your organization with skilled students, academic institutions
+            and industry-ready talent through one unified platform.
+        </p>
+
+        <p class="hero-tagline">
+            Discover the right people, publish opportunities, conduct industry
+            programs and build stronger academia-industry partnerships.
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="{{url_for("login")}}" class="primary-btn">
+                Login
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="{{url_for("signup")}}" class="secondary-btn">
+                Sign Up
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-right">
+
+        <div class="image-area">
+
+           <!-- <div class="hero-lines line-1"></div>
+            <div class="hero-lines line-2"></div>
+            <div class="hero-lines line-3"></div> -->
+
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/sih_img1.png') }}"
+                     alt="Industry collaboration">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="industry-actions" id="postjob">
+
+    <div class="section-heading">
+
+        <span class="small-title">
+            <i class="fa-solid fa-layer-group"></i>
+            ORGANIZATION HUB
+        </span>
+
+        <h2>Everything Your Organization Needs</h2>
+
+        <p>
+            Simplify hiring, upskilling and collaboration with a single
+            industry-focused workspace.
+        </p>
+
+    </div>
+
+
+    <div class="action-grid">
+
+        <div class="action-card">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-briefcase"></i>
+            </div>
+
+            <div class="action-content">
+
+                <h3>Post Job Opportunities</h3>
+
+                <p>
+                    Publish internships, placements and job openings to
+                    reach relevant student talent.
+                </p>
+
+               <!-- <a href="#">
+                    Create Opportunity
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a> -->
+
+            </div>
+
+        </div>
+
+
+        <div class="action-card" id="postcourse">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div class="action-content">
+
+                <h3>Industry Courses</h3>
+
+                <p>
+                    Offer courses, workshops and training programs that
+                    prepare students for real-world careers.
+                </p>
+
+               <!-- <a href="#">
+                    Publish Course
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a> -->
+
+            </div>
+
+        </div>
+
+
+        <div class="action-card" id="talent">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-user-group"></i>
+            </div>
+
+            <div class="action-content">
+
+                <h3>Discover Talent</h3>
+
+                <p>
+                    Explore student profiles, skills, projects and
+                    achievements to find suitable candidates.
+                </p>
+
+                <!-- <a href="#">
+                    Explore Students
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a> -->
+
+            </div>
+
+        </div>
+
+
+        <div class="action-card" id="application">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <div class="action-content">
+
+                <h3>Manage Applications</h3>
+
+                <p>
+                    Review applications, shortlist candidates and
+                    streamline your recruitment workflow.
+                </p>
+
+               <!-- <a href="#">
+                    View Applications
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a> -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="benefits">
+
+    <div class="benefit-visual">
+
+        <div class="visual-box">
+
+        
+            <div class="visual-content">
+
+                <span>WHY AIC PORTAL?</span>
+
+                <h2>
+                    From Campus<br>
+                    to Industry
+                </h2>
+
+                <p>
+                    Create a direct connection between what students learn
+                    and what industries need.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="benefit-content">
+
+        <span class="small-title">
+            <i class="fa-solid fa-circle-check"></i>
+            BUILT FOR INDUSTRY
+        </span>
+
+        <h2>
+            Connect with the right
+            talent at the right time.
+        </h2>
+
+        <p class="benefit-intro">
+            AIC Portal helps organizations build stronger talent pipelines
+            while creating meaningful opportunities for students.
+        </p>
+
+
+        <div class="benefit-list">
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <div>
+                    <h3>Skill-Based Discovery</h3>
+
+                    <p>
+                        Find candidates according to their skills,
+                        projects and academic background.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <div>
+                    <h3>Better Talent Insights</h3>
+
+                    <p>
+                        Understand skill availability and identify
+                        promising student talent.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+
+                <div>
+                    <h3>Academia Collaboration</h3>
+
+                    <p>
+                        Build connections with institutions for training,
+                        projects and recruitment.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="company-cta">
+
+    <div class="cta-content">
+
+        <span class="small-title">
+            GROW WITH AIC PORTAL
+        </span>
+
+        <h2>
+            Your next great hire<br>
+            could be one connection away.
+        </h2>
+
+        <p>
+            Discover talent, create opportunities and strengthen your
+            organization's connection with academia.
+        </p>
+
+        <a href="#b" class="cta-btn">
+            Start Hiring
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer class="footer">
+
+    <p>
+        © 2026 Team Vision Nexus
+    </p>
+
+</footer>
+
+</body>
+</html>

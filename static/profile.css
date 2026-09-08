@@ -16,7 +16,7 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 8%;
+    padding:20px 8%;
     background:white;
     position:sticky;
     top:0;
@@ -36,9 +36,9 @@ body{
 
 nav a{
     text-decoration:none;
-    margin:0 14px;
-    color:#1f2937;
-    font-size:16px;
+    margin:20px 15px;
+    color:#111827;
+    font-size:20px;
     font-weight:500;
     transition:.3s;
 }
@@ -48,18 +48,46 @@ nav a.active{
     color:#0d3b88;
 }
 
-.auth-btns{
-    display:flex;
-    gap:8px;
-    text-decoration: none;
-    border: none;
+.auth-btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.auth-btns .login{
-    display:flex;
-    gap:8px;
+.auth-btns .login,
+.auth-btns .signup {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 14px;
     text-decoration: none;
-    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.auth-btns .login {
+    border: 1px solid #0d3b88;
+    background: white;
+    color: #0d3b88;
+}
+
+.auth-btns .login:hover {
+    background: #f0f4ff;
+}
+
+.auth-btns .signup {
+    border: 1px solid #0d3b88;
+    background: #0d3b88;
+    color: white;
+    margin-left: 0; 
+}
+
+.auth-btns .signup:hover {
+    background: #2563eb;
+    border-color: #2563eb;
 }
 .auth-btns button{
 padding:10px 22px;

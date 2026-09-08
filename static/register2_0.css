@@ -1,0 +1,252 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+/* NAVBAR */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+}
+
+.logo h2{
+    color:#0d3b88;
+    font-weight:700;
+}
+
+.logo span{
+    font-size:11px;
+    color:#777;
+}
+
+nav a{
+    text-decoration:none;
+    margin:20px 15px;
+    color:#111827;
+    font-size:20px;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#0d3b88;
+}
+
+.auth-btns{
+    display:flex;
+    gap:8px;
+}
+
+.auth-btns a{
+    text-decoration:none;
+    padding:10px 22px;
+    border-radius:9px;
+    font-weight:600;
+    font-size:14px;
+}
+
+.login{
+    border:1px solid #0d3b88;
+    color:#0d3b88;
+    background:white;
+}
+
+.signup{
+    background:#0d3b88;
+    color:white;
+}
+
+/* MAIN FORM CONTAINER */
+
+.register-container {
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* FORM HEADING ABOVE THE CARD */
+
+.form-heading {
+    text-align: center;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.form-heading h1 {
+    font-size: 32px;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-heading p {
+    font-size: 15px;
+    color: #64748b;
+}
+
+/* FORM & DETAILS CARD */
+
+.register-container form {
+    width: 100%;
+}
+
+.details{
+    width: 100%;
+    background:white;
+    padding:40px 48px;
+    border-radius:16px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.details h2{
+    text-align:center;
+    color:#0b2d63;
+    font-size:26px;
+    margin-bottom:28px;
+}
+
+/* LABELS */
+
+.details label,
+.details span{
+    display:block;
+    color:#374151;
+    font-size:14px;
+    font-weight: 500;
+    margin-bottom:8px;
+}
+
+/* INPUTS AND SELECTS */
+
+.details input[type="text"],
+.details select{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #d9dee7;
+    border-radius:8px;
+    outline:none;
+    background:white;
+    color:#1f2937;
+    font-size:15px;
+    margin-bottom:22px;
+    transition:.3s;
+}
+
+.details input[type="text"]::placeholder{
+    color:#999;
+}
+
+.details select{
+    cursor:pointer;
+}
+
+/* FOCUS */
+
+.details input[type="text"]:focus,
+.details select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.1);
+}
+
+/* DROPDOWN GROUPS */
+
+.class,
+.section,
+.type{
+    width:100%;
+}
+
+/* PREFERRED ROLE */
+
+#preferred-role:disabled{
+    background:#f3f4f6;
+    color:#999;
+    cursor:not-allowed;
+}
+
+/* SUB CATEGORY INSIDE TYPE */
+
+#tree-container .section{
+    margin-top:2px;
+}
+
+/* SUBMIT BUTTON */
+
+.calculate{
+    width:100%;
+    padding:14px;
+    margin-top:10px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(135deg,#0d3b88,#2563eb);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.calculate:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 20px rgba(13,59,136,.25);
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:30px 20px 20px;
+    color:#777;
+    font-size:12px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+    .register-container {
+        max-width: 100%;
+        margin: 20px auto;
+    }
+
+    .details{
+        padding:28px 22px 30px;
+    }
+
+    .form-heading h1{
+        font-size:26px;
+    }
+
+    .details h2{
+        font-size:22px;
+    }
+}
+
+@media(max-width:450px){
+    .details{
+        padding:24px 18px;
+        border-radius:12px;
+    }
+
+    .details input[type="text"],
+    .details select{
+        padding:12px;
+    }
+}

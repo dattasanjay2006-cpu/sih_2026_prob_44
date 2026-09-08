@@ -16,7 +16,7 @@ color:#0f172a;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 8%;
+padding:20px 8%;
 background:white;
 position:sticky;
 top:0;
@@ -35,14 +35,13 @@ color:#777;
 }
 
 nav a{
-text-decoration:none;
-margin:0 14px;
-color:#1f2937;
-font-size:16px;
-font-weight:500;
-transition:.3s;
+    text-decoration:none;
+    margin:20px 15px;
+    color:#111827;
+    font-size:20px;
+    font-weight:500;
+    transition:.3s;
 }
-
 nav a:hover{
 color:#0d3b88;
 }
@@ -171,6 +170,11 @@ color:#9ca3af;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:20px 25px;
+}
+/* Keeps only the first input/select/textarea in each form group */
+.skill-grid .form-group input:nth-of-type(n+2),
+.skill-grid .form-group select:nth-of-type(n+2) {
+    display: none;
 }
 
 /* PROJECTS */

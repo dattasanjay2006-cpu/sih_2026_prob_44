@@ -16,7 +16,7 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 8%;
+    padding:20px 8%;
     background:white;
     position:sticky;
     top:0;
@@ -36,13 +36,12 @@ body{
 
 nav a{
     text-decoration:none;
-    margin:0 12px;
-    color:#1f2937;
-    font-size:15px;
+    margin:20px 15px;
+    color:#111827;
+    font-size:20px;
     font-weight:500;
     transition:.3s;
 }
-
 nav a:hover{
     color:#0d3b88;
 }

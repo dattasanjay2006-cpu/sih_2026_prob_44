@@ -22,6 +22,10 @@ body{
     z-index:1000;
     box-shadow:0 2px 20px rgba(0,0,0,0.05);
 }
+.navbar a i{
+    font-size: 20px;
+    margin-right: 5px;
+}
 
 .logo h2{
 color:#0d3b88;
@@ -40,6 +44,7 @@ nav a{
     font-weight:500;
     transition:.3s;
     font-size: 20px;
+   
 }
 
 .search-box{
@@ -179,27 +184,21 @@ flex:1;
 flex:1;
 }
 
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background: 
+        linear-gradient(
+            to right,
+            #f5f7fb 0%,
+            #f5f7fb 25%,
+            rgba(245, 247, 251, 0) 50%
+        ),
+        url("images/sih_img2.png");
 
-.hero-image{
-    position:absolute;
-    inset:0;
-     /* margin-top: 30px; 
-    height: 40%;  */
-    background:
-    linear-gradient(
-        to right,
-        #f5f7fb 0%,
-        #f5f7fb 25%,
-        rgba(245,247,251,.95) 35%,
-        rgba(245,247,251,.60) 45%,
-        rgba(245,247,251,.20) 55%,
-        transparent 65%
-    ),
-    url("images/sih_img1.png");
-
-    background-size:cover;
-    background-position:right center;
-    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
 }
 
 .hero-right img{

@@ -638,26 +638,53 @@ def login():
 # SIGNUP FORM
 #---------------------------
 
-@app.route("/signup", methods=["GET","POST"])
+# --------------------------------------------------
+# DUAL SIGNUP FORM (STUDENT & COMPANY)
+# --------------------------------------------------
+
+@app.route("/signup", methods=["GET", "POST"])
 def signup():
-    if request.method=="POST":
-        username=request.form.get("username")
-        contact=request.form.get("contact")
-        password=request.form.get("password")
-        confirm_password=request.form.get("confirm_password")
+    active_role = request.args.get("role", "user")
 
-        if password!=confirm_password:
-            return render_template("signup.html", error="Passwords do not match")
+    if request.method == "POST":
+        role = request.form.get("role", "user")
+        contact = request.form.get("contact")
+        password = request.form.get("password")
+        confirm_password = request.form.get("confirm_password")
 
-        session["profile"]={
-            "name":username,
-            "email":contact,
-            "password":password
-        }
+        if password != confirm_password:
+            return render_template("signup.html", active_role=role, error="Passwords do not match")
 
-        return redirect(url_for("login"))
+        if role == "company":
+            company_name = request.form.get("company_name")
+            session["company_profile"] = {
+                "company_name": company_name,
+                "email": contact,
+                "password": password
+            }
+            session["logged_in"]=True
+            return redirect(url_for("company"))
 
-    return render_template("signup.html")
+        else:
+            username = request.form.get("username")
+            session["profile"] = {
+                "name": username,
+                "email": contact,
+                "password": password
+            }
+            session["logges_in"]=True
+            return redirect(url_for("home"))
+
+    return render_template("signup.html", active_role=active_role)
+
+@app.route("/register2_0")
+def register2_0():
+    return render_template("register2_0.html",academic_tree=root.to_dict())
+
+@app.route("/company")
+def company():
+    company_data=session.get("company_profile",{})
+    return render_template("company.html",company=company_data)
 
 if __name__=="__main__":
 
